@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale=1" />
+    <link rel="stylesheet" href="js/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  </head>
+  <body >
+
+  <div ng-controller="DemoCtrl" layout="column" class="inputdemoIcons" ng-app="MyApp">
+    <md-toolbar class="md-theme-light">
+      <div class="md-toolbar-tools">
+        <span class="titleTop">Bienvenido</span>
+      </div>
+    </md-toolbar>
+
+    <br>
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="Ingresar" md-dynamic-height="" class="md-padding">
+        <md-content layout-padding="" class="autoScroll">
+          <md-input-container class="md-icon-float">
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="users.nombre" type="text" placeholder="Nombre(requerido)" ng-required="true">
+          </md-input-container>
+
+          <md-input-container class="md-icon-float">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="users.tel" type="number" placeholder="Teléfono (requerido)" ng-required="true">
+          </md-input-container>
+
+          <md-input-container class="md-icon-float">
+            <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+            <input ng-model="users.correo" type="email" placeholder="Email (requerido)" ng-required="true">
+          </md-input-container>
+
+          <md-input-container>
+            <md-button class="md-raised md-accent" ng-click="addItem()">Enviar</md-button>
+          </md-input-container>
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Listado">
+        <md-content layout-padding="" class="autoScroll">
+          <md-list>
+            <md-list-item class="md-2-line" ng-repeat="person in users">
+              <img src="img/icons/bower-logo.svg" class="md-avatar" alt="" />
+              <div class="md-list-item-text">
+                <h3 class="md-headline">{{ person.nombre}} </h3>
+                <h4 class="md-headline">{{ person.correo}} </h4>
+                <h4 class="md-headline">{{ person.tel}} </h4>
+              </div>
+              <md-divider></md-divider>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-tab>
+
+    </md-tabs>
+  </div>
+
+  <script src="js/bower_components/angular/angular.js"></script>
+  <script src="js/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="js/bower_components/angular-material/angular-material.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
